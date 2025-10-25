@@ -1,0 +1,57 @@
+# Backend
+Backend/target/
+Backend/.idea/
+Backend/*.iml
+Backend/.env
+
+# Frontend
+Frontend/node_modules/
+Frontend/dist/
+Frontend/build/
+Frontend/.env
+Frontend/coverage/
+
+# General
+.DS_Store
+*.log
+.env
+.env.local
+.env.*.local
+
+# IDE
+.idea/
+.vscode/
+*.sublime-*
+*.swp
+*.swo
+
+# Compiled files
+*.class
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Testing
+coverage/
+.nyc_output/
+
+# Build
+dist/
+build/
+target/

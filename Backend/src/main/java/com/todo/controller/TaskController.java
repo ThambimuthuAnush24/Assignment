@@ -48,4 +48,16 @@ public class TaskController {
             return ResponseEntity.badRequest().build();
         }
     }
+
+    // Delete task
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteTask(@PathVariable Long id) {
+        try {
+            taskService.deleteTask(id);
+            return ResponseEntity.ok().build();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.badRequest().build();
+        }
+    }
 }

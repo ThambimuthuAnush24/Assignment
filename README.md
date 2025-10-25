@@ -531,6 +531,78 @@ This project is open source and available for educational purposes.
 
 ---
 
+## 🧪 Testing
+
+### Backend Tests
+
+The backend includes unit tests and integration tests following clean code and SOLID principles.
+
+**Test Files:**
+- `TaskServiceTest.java` - Tests business logic
+- `TaskControllerTest.java` - Tests REST API endpoints
+- `TodoApplicationTests.java` - Integration test
+
+**Run Backend Tests:**
+```bash
+cd Backend
+mvn test
+```
+
+**Technologies:**
+- JUnit 5 - Testing framework
+- Mockito - Mocking dependencies
+- H2 Database - In-memory test database
+
+**What's Tested:**
+- ✅ Create task
+- ✅ Get recent tasks
+- ✅ Update task
+- ✅ Complete task
+- ✅ Delete task
+- ✅ REST API endpoints
+
+### Frontend Tests
+
+The frontend includes unit tests for React components.
+
+**Test Files:**
+- `TaskCard.test.jsx` - Tests task card component
+- `TaskForm.test.jsx` - Tests form component
+- `TaskList.test.jsx` - Tests list component
+
+**Run Frontend Tests:**
+```bash
+cd Frontend
+npm install
+npm test
+```
+
+**Technologies:**
+- Vitest - Fast testing framework
+- React Testing Library - Component testing
+- jsdom - DOM environment
+
+**What's Tested:**
+- ✅ Component rendering
+- ✅ User interactions
+- ✅ Form submissions
+- ✅ Delete functionality
+
+### Clean Code & SOLID Principles
+
+**Clean Code:**
+- Clear, meaningful test names
+- Simple test structure (Given-When-Then)
+- No code duplication
+- Easy to read and understand
+
+**SOLID:**
+- Single Responsibility - Each test tests one thing
+- Dependency Inversion - Using mocks for dependencies
+- Interface Segregation - Minimal test dependencies
+
+---
+
 ## 🎓 Learning Resources
 
 - **Docker**: https://docs.docker.com/
