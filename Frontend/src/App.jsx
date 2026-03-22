@@ -97,27 +97,57 @@ function App() {
     fetchTasks();
   }, []);
 
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-100 py-8 px-4 animate-fadeIn">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {/* Left Section - Add Task Form */}
-        <div className="lg:col-span-1 animate-slideUp">
-          <TaskForm onCreateTask={createTask} />
-        </div>
+  const completedTasks = tasks.filter((task) => task.completed).length;
 
-        {/* Right Section - Task List */}
-        <div className="lg:col-span-2 animate-slideIn">
-          {loading ? (
-            <div className="text-center py-20 text-gray-500 text-lg animate-pulse-slow">
-              Loading tasks...
+  return (
+    <div className="app-shell min-h-screen px-4 py-8 md:px-8 md:py-10 animate-fadeIn">
+      <div className="mx-auto w-full max-w-6xl">
+        <header className="mb-8 md:mb-10 animate-slideDown">
+          <p className="tracking-[0.18em] text-xs md:text-sm uppercase text-slate-700/80 font-semibold">
+            Task Workspace
+          </p>
+          <div className="mt-3 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div>
+              <h1 className="text-4xl md:text-6xl font-black text-slate-900 leading-[0.95]">
+                Plan
+                <span className="block text-cyan-700">with Clarity</span>
+              </h1>
+              <p className="mt-3 max-w-2xl text-slate-700 text-sm md:text-base">
+                Capture tasks, edit quickly, and keep momentum with a cleaner dashboard.
+              </p>
             </div>
-          ) : (
-            <TaskList 
-              tasks={tasks} 
-              onMarkCompleted={markAsCompleted}
-              onUpdateTask={updateTask}
-            />
-          )}
+
+            <div className="grid grid-cols-2 gap-3 w-full md:w-auto">
+              <div className="stat-chip">
+                <span className="stat-chip-label">Total</span>
+                <span className="stat-chip-value">{tasks.length}</span>
+              </div>
+              <div className="stat-chip">
+                <span className="stat-chip-label">Completed</span>
+                <span className="stat-chip-value">{completedTasks}</span>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
+          <div className="lg:col-span-1 animate-slideUp">
+          <TaskForm onCreateTask={createTask} />
+          </div>
+
+          <div className="lg:col-span-2 animate-slideIn">
+            {loading ? (
+              <div className="glass-panel text-center py-20 text-slate-700 text-lg animate-pulse-slow">
+                Loading tasks...
+              </div>
+            ) : (
+              <TaskList
+                tasks={tasks}
+                onMarkCompleted={markAsCompleted}
+                onUpdateTask={updateTask}
+              />
+            )}
+          </div>
         </div>
       </div>
     </div>
