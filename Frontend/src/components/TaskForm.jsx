@@ -27,25 +27,17 @@ function TaskForm({ onCreateTask }) {
   };
 
   return (
-    <div className="bg-gradient-to-br from-white to-blue-50 rounded-2xl shadow-2xl p-8 h-fit sticky top-8 border-2 border-blue-100 hover:border-blue-200 transition-all duration-300">
-      {/* Header with Icon */}
-      <div className="text-center mb-8">
-        <div className="inline-block p-4 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full shadow-lg mb-4 transform hover:scale-110 transition-transform duration-300">
-          <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-          </svg>
-        </div>
-        <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
-          Add a Task
-        </h2>
-        <p className="text-gray-500 text-sm mt-2">Create a new todo item</p>
+    <div className="glass-panel rounded-3xl p-6 md:p-7 h-fit sticky top-6">
+      <div className="mb-7">
+        <p className="text-xs uppercase tracking-[0.15em] text-slate-700/75 font-semibold">New item</p>
+        <h2 className="mt-2 text-3xl md:text-4xl font-black text-slate-900 leading-none">Add a Task</h2>
+        <p className="mt-2 text-sm text-slate-700">Capture the next action with title and details.</p>
       </div>
       
       <form onSubmit={handleSubmit} className="space-y-6">
-        {/* Title Input */}
         <div className="relative">
-          <label htmlFor="taskName" className="flex items-center gap-2 text-sm font-bold text-gray-700 mb-3">
-            <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <label htmlFor="taskName" className="flex items-center gap-2 text-sm font-bold text-slate-700 mb-3">
+            <svg className="w-5 h-5 text-cyan-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
             </svg>
             Title
@@ -56,15 +48,14 @@ function TaskForm({ onCreateTask }) {
             value={taskName}
             onChange={(e) => setTaskName(e.target.value)}
             placeholder="Enter task title..."
-            className="w-full px-4 py-3.5 bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 hover:border-blue-300 placeholder-gray-400 text-gray-800 font-medium shadow-sm"
+            className="w-full px-4 py-3.5 bg-white/85 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-cyan-600 focus:border-cyan-600 transition-all duration-200 hover:border-cyan-600 placeholder-slate-400 text-slate-800 font-medium shadow-sm"
             disabled={isSubmitting}
           />
         </div>
 
-        {/* Description Input */}
         <div className="relative">
-          <label htmlFor="description" className="flex items-center gap-2 text-sm font-bold text-gray-700 mb-3">
-            <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <label htmlFor="description" className="flex items-center gap-2 text-sm font-bold text-slate-700 mb-3">
+            <svg className="w-5 h-5 text-cyan-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h7" />
             </svg>
             Description
@@ -74,19 +65,17 @@ function TaskForm({ onCreateTask }) {
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             placeholder="Enter task description..."
-            className="w-full px-4 py-3.5 bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 resize-none hover:border-blue-300 placeholder-gray-400 text-gray-800 shadow-sm"
+            className="w-full px-4 py-3.5 bg-white/85 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-cyan-600 focus:border-cyan-600 transition-all duration-200 resize-none hover:border-cyan-600 placeholder-slate-400 text-slate-800 shadow-sm"
             rows="5"
             disabled={isSubmitting}
           />
         </div>
 
-        {/* Submit Button */}
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 hover:from-blue-700 hover:via-blue-800 hover:to-blue-900 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 transform hover:scale-[1.02] hover:-translate-y-0.5 active:scale-[0.98] shadow-xl hover:shadow-2xl disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-lg relative overflow-hidden group"
+          className="w-full bg-slate-900 hover:bg-slate-950 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 transform hover:scale-[1.01] hover:-translate-y-0.5 active:scale-[0.99] shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-md relative overflow-hidden"
         >
-          <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-blue-400 to-blue-500 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span>
           {isSubmitting ? (
             <span className="flex items-center justify-center gap-3">
               <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
@@ -103,13 +92,12 @@ function TaskForm({ onCreateTask }) {
         </button>
       </form>
 
-      {/* Decorative Element */}
-      <div className="mt-6 pt-6 border-t border-gray-200">
-        <div className="flex items-center justify-center gap-2 text-xs text-gray-400">
+      <div className="mt-6 pt-6 border-t border-slate-300/70">
+        <div className="flex items-center justify-center gap-2 text-xs text-slate-500">
           <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
             <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
           </svg>
-          <span>Fill in the details to create a new task</span>
+          <span>Quick capture helps you keep flow</span>
         </div>
       </div>
     </div>
