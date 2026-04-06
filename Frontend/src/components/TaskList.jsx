@@ -1,7 +1,17 @@
 import React from 'react';
 import TaskCard from './TaskCard.jsx';
 
-function TaskList({ tasks, onMarkCompleted, onUpdateTask }) {
+function TaskList({ tasks, onMarkCompleted, onUpdateTask, onDeleteTask }) {
+  const isTaskCompleted = (task) => {
+    if (typeof task.completed === 'boolean') {
+      return task.completed;
+    }
+    return (task.status || '').toLowerCase() === 'completed';
+  };
+
+  const progressTasks = tasks.filter((task) => !isTaskCompleted(task));
+  const completedTasks = tasks.filter(isTaskCompleted);
+
   if (tasks.length === 0) {
     return (
       <div className="glass-panel rounded-3xl p-12 text-center animate-fadeIn">
@@ -17,22 +27,56 @@ function TaskList({ tasks, onMarkCompleted, onUpdateTask }) {
   }
 
   return (
-    <div className="glass-panel rounded-3xl p-4 md:p-5">
+    <div className="glass-panel rounded-3xl p-4 md:p-5 list-panel">
       <div className="mb-4 px-1 flex items-center justify-between gap-3">
         <h2 className="text-xl md:text-2xl font-black text-slate-900">Task Queue</h2>
         <span className="text-xs md:text-sm text-slate-600 font-semibold tracking-wide uppercase">{tasks.length} items</span>
       </div>
 
-      <div className="space-y-3">
-      {tasks.map((task, index) => (
-        <TaskCard 
-          key={task.taskId} 
-          task={task} 
-          taskNumber={index + 1}
-          onMarkCompleted={onMarkCompleted}
-          onUpdateTask={onUpdateTask}
-        />
-      ))}
+      <div className="space-y-6">
+        <section>
+          <div className="mb-3 flex items-center justify-between">
+            <h3 className="text-xs uppercase tracking-[0.2em] text-slate-600 font-bold">In Progress</h3>
+            <span className="text-xs text-slate-500 font-semibold">{progressTasks.length}</span>
+          </div>
+          <div className="space-y-3">
+            {progressTasks.length === 0 ? (
+              <p className="text-sm text-slate-500 px-1">No active tasks right now.</p>
+            ) : (
+              progressTasks.map((task, index) => (
+                <TaskCard
+                  key={task.taskId}
+                  task={task}
+                  taskNumber={index + 1}
+                  onMarkCompleted={onMarkCompleted}
+                  onUpdateTask={onUpdateTask}
+                  onDeleteTask={onDeleteTask}
+                />
+              ))
+            )}
+          </div>
+        </section>
+
+        {completedTasks.length > 0 && (
+          <section>
+            <div className="mb-3 flex items-center justify-between">
+              <h3 className="text-xs uppercase tracking-[0.2em] text-slate-600 font-bold">Completed</h3>
+              <span className="text-xs text-slate-500 font-semibold">{completedTasks.length}</span>
+            </div>
+            <div className="space-y-3">
+              {completedTasks.map((task, index) => (
+                <TaskCard
+                  key={task.taskId}
+                  task={task}
+                  taskNumber={progressTasks.length + index + 1}
+                  onMarkCompleted={onMarkCompleted}
+                  onUpdateTask={onUpdateTask}
+                  onDeleteTask={onDeleteTask}
+                />
+              ))}
+            </div>
+          </section>
+        )}
       </div>
     </div>
   );

@@ -6,6 +6,13 @@ function App() {
   const [tasks, setTasks] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  const isTaskCompleted = (task) => {
+    if (typeof task.completed === 'boolean') {
+      return task.completed;
+    }
+    return (task.status || '').toLowerCase() === 'completed';
+  };
+
   // Fetch tasks from backend
   const fetchTasks = async () => {
     setLoading(true);
@@ -77,6 +84,21 @@ function App() {
     }
   };
 
+  // Delete task
+  const deleteTask = async (taskId) => {
+    try {
+      const response = await fetch(`http://localhost:8080/api/tasks/${taskId}`, {
+        method: 'DELETE',
+      });
+
+      if (response.ok) {
+        fetchTasks();
+      }
+    } catch (error) {
+      console.error('Error deleting task:', error);
+    }
+  };
+
   // Mark task as completed
   const markAsCompleted = async (taskId) => {
     try {
@@ -97,27 +119,30 @@ function App() {
     fetchTasks();
   }, []);
 
-  const completedTasks = tasks.filter((task) => task.completed).length;
+  const completedTasks = tasks.filter(isTaskCompleted).length;
+  const completionRate = tasks.length === 0 ? 0 : Math.round((completedTasks / tasks.length) * 100);
 
   return (
     <div className="app-shell min-h-screen px-4 py-8 md:px-8 md:py-10 animate-fadeIn">
+      <div className="bg-orb bg-orb-a" />
+      <div className="bg-orb bg-orb-b" />
       <div className="mx-auto w-full max-w-6xl">
         <header className="mb-8 md:mb-10 animate-slideDown">
-          <p className="tracking-[0.18em] text-xs md:text-sm uppercase text-slate-700/80 font-semibold">
-            Task Workspace
+          <p className="tracking-[0.2em] text-xs md:text-sm uppercase text-slate-700/80 font-semibold">
+            Productivity Canvas
           </p>
           <div className="mt-3 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div>
               <h1 className="text-4xl md:text-6xl font-black text-slate-900 leading-[0.95]">
-                Plan
-                <span className="block text-cyan-700">with Clarity</span>
+                Task
+                <span className="block text-cyan-700">Command Center</span>
               </h1>
               <p className="mt-3 max-w-2xl text-slate-700 text-sm md:text-base">
-                Capture tasks, edit quickly, and keep momentum with a cleaner dashboard.
+                Capture tasks, move them forward, and finish strong with a focused workflow board.
               </p>
             </div>
 
-            <div className="grid grid-cols-2 gap-3 w-full md:w-auto">
+            <div className="grid grid-cols-3 gap-3 w-full md:w-auto">
               <div className="stat-chip">
                 <span className="stat-chip-label">Total</span>
                 <span className="stat-chip-value">{tasks.length}</span>
@@ -125,6 +150,10 @@ function App() {
               <div className="stat-chip">
                 <span className="stat-chip-label">Completed</span>
                 <span className="stat-chip-value">{completedTasks}</span>
+              </div>
+              <div className="stat-chip">
+                <span className="stat-chip-label">Rate</span>
+                <span className="stat-chip-value">{completionRate}%</span>
               </div>
             </div>
           </div>
@@ -145,6 +174,7 @@ function App() {
                 tasks={tasks}
                 onMarkCompleted={markAsCompleted}
                 onUpdateTask={updateTask}
+                onDeleteTask={deleteTask}
               />
             )}
           </div>

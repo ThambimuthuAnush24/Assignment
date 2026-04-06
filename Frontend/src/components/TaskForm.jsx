@@ -27,11 +27,11 @@ function TaskForm({ onCreateTask }) {
   };
 
   return (
-    <div className="glass-panel rounded-3xl p-6 md:p-7 h-fit sticky top-6">
+    <div className="glass-panel rounded-3xl p-6 md:p-7 h-fit sticky top-6 form-panel">
       <div className="mb-7">
-        <p className="text-xs uppercase tracking-[0.15em] text-slate-700/75 font-semibold">New item</p>
-        <h2 className="mt-2 text-3xl md:text-4xl font-black text-slate-900 leading-none">Add a Task</h2>
-        <p className="mt-2 text-sm text-slate-700">Capture the next action with title and details.</p>
+        <p className="text-xs uppercase tracking-[0.2em] text-slate-700/75 font-semibold">Create task</p>
+        <h2 className="mt-2 text-3xl md:text-4xl font-black text-slate-900 leading-none">New Action</h2>
+        <p className="mt-2 text-sm text-slate-700">Write a clear title and short context to keep execution sharp.</p>
       </div>
       
       <form onSubmit={handleSubmit} className="space-y-6">
@@ -47,8 +47,8 @@ function TaskForm({ onCreateTask }) {
             id="taskName"
             value={taskName}
             onChange={(e) => setTaskName(e.target.value)}
-            placeholder="Enter task title..."
-            className="w-full px-4 py-3.5 bg-white/85 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-cyan-600 focus:border-cyan-600 transition-all duration-200 hover:border-cyan-600 placeholder-slate-400 text-slate-800 font-medium shadow-sm"
+            placeholder="Enter task title"
+            className="w-full px-4 py-3.5 bg-white/90 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-cyan-600 focus:border-cyan-600 transition-all duration-200 hover:border-cyan-600 placeholder-slate-400 text-slate-800 font-medium shadow-sm"
             disabled={isSubmitting}
           />
         </div>
@@ -64,8 +64,8 @@ function TaskForm({ onCreateTask }) {
             id="description"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            placeholder="Enter task description..."
-            className="w-full px-4 py-3.5 bg-white/85 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-cyan-600 focus:border-cyan-600 transition-all duration-200 resize-none hover:border-cyan-600 placeholder-slate-400 text-slate-800 shadow-sm"
+            placeholder="Enter task description"
+            className="w-full px-4 py-3.5 bg-white/90 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-cyan-600 focus:border-cyan-600 transition-all duration-200 resize-none hover:border-cyan-600 placeholder-slate-400 text-slate-800 shadow-sm"
             rows="5"
             disabled={isSubmitting}
           />
@@ -74,7 +74,7 @@ function TaskForm({ onCreateTask }) {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full bg-slate-900 hover:bg-slate-950 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 transform hover:scale-[1.01] hover:-translate-y-0.5 active:scale-[0.99] shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-md relative overflow-hidden"
+          className="w-full bg-slate-900 hover:bg-slate-950 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 transform hover:scale-[1.01] hover:-translate-y-0.5 active:scale-[0.99] shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-md"
         >
           {isSubmitting ? (
             <span className="flex items-center justify-center gap-3">
@@ -97,7 +97,7 @@ function TaskForm({ onCreateTask }) {
           <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
             <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
           </svg>
-          <span>Quick capture helps you keep flow</span>
+          <span>Strong task titles make execution faster</span>
         </div>
       </div>
     </div>
