@@ -29,9 +29,11 @@ function TaskForm({ onCreateTask }) {
   return (
     <div className="glass-panel rounded-3xl p-6 md:p-7 h-fit sticky top-6 form-panel">
       <div className="mb-7">
-        <p className="text-xs uppercase tracking-[0.2em] text-slate-700/75 font-semibold">Create task</p>
-        <h2 className="mt-2 text-3xl md:text-4xl font-black text-slate-900 leading-none">New Action</h2>
-        <p className="mt-2 text-sm text-slate-700">Write a clear title and short context to keep execution sharp.</p>
+        <div className="hero-kicker inline-flex">Create task</div>
+        <h2 className="mt-3 text-3xl md:text-4xl font-black text-slate-950 leading-none">New Action</h2>
+        <p className="mt-3 text-sm text-slate-700 leading-7">
+          Write a clear title and short context to keep execution sharp.
+        </p>
       </div>
       
       <form onSubmit={handleSubmit} className="space-y-6">
@@ -74,7 +76,7 @@ function TaskForm({ onCreateTask }) {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full bg-slate-900 hover:bg-slate-950 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 transform hover:scale-[1.01] hover:-translate-y-0.5 active:scale-[0.99] shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-md"
+          className="primary-button w-full bg-slate-900 hover:bg-slate-950 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 transform hover:scale-[1.01] hover:-translate-y-0.5 active:scale-[0.99] shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-md"
         >
           {isSubmitting ? (
             <span className="flex items-center justify-center gap-3">
@@ -93,7 +95,7 @@ function TaskForm({ onCreateTask }) {
       </form>
 
       <div className="mt-6 pt-6 border-t border-slate-300/70">
-        <div className="flex items-center justify-center gap-2 text-xs text-slate-500">
+        <div className="flex items-center justify-center gap-2 text-xs text-slate-500 leading-6">
           <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
             <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
           </svg>

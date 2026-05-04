@@ -95,7 +95,7 @@ function TaskCard({ task, taskNumber, onMarkCompleted, onUpdateTask, onDeleteTas
     <div className={`task-card rounded-2xl p-4 md:p-5 transition-all duration-300 border animate-slideIn ${isCompleted ? 'task-card-completed border-emerald-300/70' : 'border-slate-300/80 hover:border-cyan-700/60'}`}>
       <div className="flex items-start gap-4">
         <div className="flex-shrink-0">
-          <div className="w-10 h-10 bg-slate-900 text-cyan-200 rounded-xl flex items-center justify-center font-bold text-sm shadow-md">
+          <div className={`task-number-badge w-10 h-10 rounded-xl flex items-center justify-center font-bold text-sm shadow-md ${isCompleted ? 'task-number-badge-complete' : ''}`}>
             {taskNumber}
           </div>
         </div>
@@ -149,7 +149,7 @@ function TaskCard({ task, taskNumber, onMarkCompleted, onUpdateTask, onDeleteTas
           ) : (
             <>
               <div className="mb-2 flex flex-wrap items-center gap-2">
-                <h3 className="text-lg md:text-xl font-black text-slate-900 break-words leading-tight">
+                <h3 className="text-lg md:text-xl font-black text-slate-950 break-words leading-tight">
                   {task.taskName}
                 </h3>
                 <span className={`status-pill ${isCompleted ? 'status-pill-done' : 'status-pill-progress'}`}>
@@ -158,12 +158,12 @@ function TaskCard({ task, taskNumber, onMarkCompleted, onUpdateTask, onDeleteTas
               </div>
               
               {task.description && (
-                <p className="text-slate-700 text-sm leading-relaxed break-words mb-2">
+                <p className="text-slate-700 text-sm leading-relaxed break-words mb-3">
                   {task.description}
                 </p>
               )}
 
-              <div className="flex items-center gap-1.5 text-xs text-slate-500 mt-3">
+              <div className="flex items-center gap-1.5 text-xs text-slate-500 mt-3 task-meta-row">
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 </svg>
@@ -174,10 +174,10 @@ function TaskCard({ task, taskNumber, onMarkCompleted, onUpdateTask, onDeleteTas
         </div>
 
         {!isEditing && (
-          <div className="flex flex-wrap justify-end gap-2 flex-shrink-0 self-center">
+          <div className="task-actions flex flex-wrap justify-end gap-2 flex-shrink-0 self-center">
             <button 
               onClick={handleEdit}
-              className="px-4 py-2 bg-slate-900 hover:bg-slate-950 text-white rounded-lg font-semibold transition-all duration-200 whitespace-nowrap transform hover:scale-[1.03] active:scale-95 shadow-md text-sm"
+              className="task-action-button task-action-button-primary px-4 py-2 bg-slate-900 hover:bg-slate-950 text-white rounded-lg font-semibold transition-all duration-200 whitespace-nowrap transform hover:scale-[1.03] active:scale-95 shadow-md text-sm"
               title="Edit task"
             >
               Edit
@@ -185,7 +185,7 @@ function TaskCard({ task, taskNumber, onMarkCompleted, onUpdateTask, onDeleteTas
             <button 
               onClick={handleComplete}
               disabled={isCompleted}
-              className="px-4 py-2 bg-cyan-50 hover:bg-cyan-100 border border-cyan-700 text-cyan-900 rounded-lg font-semibold transition-all duration-200 whitespace-nowrap transform hover:scale-[1.03] active:scale-95 shadow-sm text-sm disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+              className="task-action-button task-action-button-secondary px-4 py-2 bg-cyan-50 hover:bg-cyan-100 border border-cyan-700 text-cyan-900 rounded-lg font-semibold transition-all duration-200 whitespace-nowrap transform hover:scale-[1.03] active:scale-95 shadow-sm text-sm disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
               title="Mark as done"
             >
               {isCompleted ? 'Done' : 'Complete'}
@@ -193,7 +193,7 @@ function TaskCard({ task, taskNumber, onMarkCompleted, onUpdateTask, onDeleteTas
             {onDeleteTask && (
               <button
                 onClick={handleDelete}
-                className="px-4 py-2 bg-rose-50 hover:bg-rose-100 border border-rose-500 text-rose-700 rounded-lg font-semibold transition-all duration-200 whitespace-nowrap transform hover:scale-[1.03] active:scale-95 shadow-sm text-sm"
+                className="task-action-button task-action-button-danger px-4 py-2 bg-rose-50 hover:bg-rose-100 border border-rose-500 text-rose-700 rounded-lg font-semibold transition-all duration-200 whitespace-nowrap transform hover:scale-[1.03] active:scale-95 shadow-sm text-sm"
                 title="Delete task"
               >
                 Delete

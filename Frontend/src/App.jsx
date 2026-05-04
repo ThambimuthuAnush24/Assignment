@@ -127,22 +127,26 @@ function App() {
       <div className="bg-orb bg-orb-a" />
       <div className="bg-orb bg-orb-b" />
       <div className="mx-auto w-full max-w-6xl">
-        <header className="mb-8 md:mb-10 animate-slideDown">
-          <p className="tracking-[0.2em] text-xs md:text-sm uppercase text-slate-700/80 font-semibold">
-            Productivity Canvas
-          </p>
-          <div className="mt-3 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-            <div>
-              <h1 className="text-4xl md:text-6xl font-black text-slate-900 leading-[0.95]">
+        <header className="hero-panel glass-panel mb-8 md:mb-10 animate-slideDown">
+          <div className="hero-panel-grid">
+            <div className="max-w-2xl">
+              <div className="hero-kicker">Productivity canvas</div>
+              <h1 className="mt-4 text-4xl md:text-6xl font-black text-slate-950 leading-[0.92]">
                 Task
                 <span className="block text-cyan-700">Command Center</span>
               </h1>
-              <p className="mt-3 max-w-2xl text-slate-700 text-sm md:text-base">
-                Capture tasks, move them forward, and finish strong with a focused workflow board.
+              <p className="mt-4 max-w-xl text-slate-700 text-sm md:text-base leading-7">
+                Capture work fast, edit in place, and keep the board focused on what is moving now.
               </p>
+
+              <div className="mt-6 flex flex-wrap gap-3">
+                <span className="hero-chip">Fast capture</span>
+                <span className="hero-chip">In-place edits</span>
+                <span className="hero-chip">Clear status</span>
+              </div>
             </div>
 
-            <div className="grid grid-cols-3 gap-3 w-full md:w-auto">
+            <div className="grid grid-cols-3 gap-3 w-full md:w-auto hero-stats">
               <div className="stat-chip">
                 <span className="stat-chip-label">Total</span>
                 <span className="stat-chip-value">{tasks.length}</span>
@@ -161,7 +165,7 @@ function App() {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
           <div className="lg:col-span-1 animate-slideUp">
-          <TaskForm onCreateTask={createTask} />
+            <TaskForm onCreateTask={createTask} />
           </div>
 
           <div className="lg:col-span-2 animate-slideIn">
