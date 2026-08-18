@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import TaskForm from './components/TaskForm.jsx';
 import TaskList from './components/TaskList.jsx';
+import Navbar from './components/Navbar.jsx';
+import HeroSection from './components/HeroSection.jsx';
+import StatsOverview from './components/StatsOverview.jsx';
 
 function App() {
   const [tasks, setTasks] = useState([]);
@@ -119,72 +122,47 @@ function App() {
     fetchTasks();
   }, []);
 
-  const completedTasks = tasks.filter(isTaskCompleted).length;
-  const completionRate = tasks.length === 0 ? 0 : Math.round((completedTasks / tasks.length) * 100);
-
   return (
-    <div className="app-shell min-h-screen px-4 py-8 md:px-8 md:py-10 animate-fadeIn">
-      <div className="bg-orb bg-orb-a" />
-      <div className="bg-orb bg-orb-b" />
-      <div className="mx-auto w-full max-w-6xl">
-        <header className="hero-panel glass-panel mb-8 md:mb-10 animate-slideDown">
-          <div className="hero-panel-grid">
-            <div className="max-w-2xl">
-              <div className="hero-kicker">Productivity canvas</div>
-              <h1 className="mt-4 text-4xl md:text-6xl font-black text-slate-950 leading-[0.92]">
-                Task
-                <span className="block text-cyan-700">Command Center</span>
-              </h1>
-              <p className="mt-4 max-w-xl text-slate-700 text-sm md:text-base leading-7">
-                Capture work fast, edit in place, and keep the board focused on what is moving now.
-              </p>
+    <>
+      <Navbar />
+      <div className="app-shell min-h-screen pt-20 px-4 py-8 md:px-8 md:py-10 animate-fadeIn">
+        <div className="bg-orb bg-orb-a" />
+        <div className="bg-orb bg-orb-b" />
+        <div className="mx-auto w-full max-w-6xl">
+          {/* Hero Section */}
+          <HeroSection />
 
-              <div className="mt-6 flex flex-wrap gap-3">
-                <span className="hero-chip">Fast capture</span>
-                <span className="hero-chip">In-place edits</span>
-                <span className="hero-chip">Clear status</span>
+          {/* Stats Overview */}
+          <StatsOverview tasks={tasks} />
+
+          {/* Main Content Section */}
+          <div id="tasks" className="py-12">
+            <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-8">Manage Tasks</h2>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
+              <div className="lg:col-span-1 animate-slideUp">
+                <TaskForm onCreateTask={createTask} />
+              </div>
+
+              <div className="lg:col-span-2 animate-slideIn">
+                {loading ? (
+                  <div className="glass-panel text-center py-20 text-slate-700 text-lg animate-pulse-slow">
+                    Loading tasks...
+                  </div>
+                ) : (
+                  <TaskList
+                    tasks={tasks}
+                    onMarkCompleted={markAsCompleted}
+                    onUpdateTask={updateTask}
+                    onDeleteTask={deleteTask}
+                  />
+                )}
               </div>
             </div>
-
-            <div className="grid grid-cols-3 gap-3 w-full md:w-auto hero-stats">
-              <div className="stat-chip">
-                <span className="stat-chip-label">Total</span>
-                <span className="stat-chip-value">{tasks.length}</span>
-              </div>
-              <div className="stat-chip">
-                <span className="stat-chip-label">Completed</span>
-                <span className="stat-chip-value">{completedTasks}</span>
-              </div>
-              <div className="stat-chip">
-                <span className="stat-chip-label">Rate</span>
-                <span className="stat-chip-value">{completionRate}%</span>
-              </div>
-            </div>
-          </div>
-        </header>
-
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
-          <div className="lg:col-span-1 animate-slideUp">
-            <TaskForm onCreateTask={createTask} />
-          </div>
-
-          <div className="lg:col-span-2 animate-slideIn">
-            {loading ? (
-              <div className="glass-panel text-center py-20 text-slate-700 text-lg animate-pulse-slow">
-                Loading tasks...
-              </div>
-            ) : (
-              <TaskList
-                tasks={tasks}
-                onMarkCompleted={markAsCompleted}
-                onUpdateTask={updateTask}
-                onDeleteTask={deleteTask}
-              />
-            )}
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
