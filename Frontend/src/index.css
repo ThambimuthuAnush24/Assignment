@@ -258,6 +258,31 @@ h3 {
 .task-meta-row {
   padding: 0.55rem 0.75rem;
   border-radius: 0.85rem;
+  background: rgba(248, 250, 252, 0.9);
+  border: 1px solid rgba(148, 163, 184, 0.14);
+}
+
+.task-action-button {
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+}
+
+.task-action-button-primary {
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+}
+
+.task-action-button-secondary {
+  background: linear-gradient(135deg, #ecfeff, #cffafe);
+}
+
+.task-action-button-danger {
+  background: linear-gradient(135deg, #fff1f2, #ffe4e6);
+}
+
+@media (max-width: 768px) {
+  .app-shell::after {
+    background-size: 36px 36px;
+  }
+}
   background: rgba(248, 250, 252, 0.78);
   width: fit-content;
 }

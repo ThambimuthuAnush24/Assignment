@@ -10,7 +10,7 @@ function StatsOverview({ tasks }) {
 
   const totalTasks = tasks.length;
   const completedTasks = tasks.filter(isTaskCompleted).length;
-  const inProgressTasks = tasks.filter(task => !isTaskCompleted(task)).length;
+  const inProgressTasks = tasks.filter((task) => !isTaskCompleted(task)).length;
   const completionRate = totalTasks === 0 ? 0 : Math.round((completedTasks / totalTasks) * 100);
 
   const stats = [
@@ -19,64 +19,60 @@ function StatsOverview({ tasks }) {
       value: totalTasks,
       icon: '📋',
       color: 'from-blue-600 to-cyan-600',
-      bgColor: 'bg-blue-50'
+      bgColor: 'bg-blue-50',
     },
     {
       label: 'In Progress',
       value: inProgressTasks,
       icon: '⚡',
       color: 'from-yellow-600 to-orange-600',
-      bgColor: 'bg-yellow-50'
+      bgColor: 'bg-yellow-50',
     },
     {
       label: 'Completed',
       value: completedTasks,
       icon: '✅',
       color: 'from-green-600 to-emerald-600',
-      bgColor: 'bg-green-50'
+      bgColor: 'bg-green-50',
     },
     {
       label: 'Completion Rate',
       value: `${completionRate}%`,
       icon: '📈',
       color: 'from-purple-600 to-pink-600',
-      bgColor: 'bg-purple-50'
-    }
+      bgColor: 'bg-purple-50',
+    },
   ];
 
   return (
     <div id="stats" className="py-12">
       <div className="mb-8">
-        <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-2">Your Progress</h2>
-        <p className="text-slate-600 text-lg">Track your productivity and stay motivated</p>
+        <div className="hero-kicker mb-4">Overview</div>
+        <h2 className="mb-2 text-3xl font-black text-slate-900 md:text-4xl">Your Progress</h2>
+        <p className="text-lg text-slate-600">Track your productivity and stay motivated.</p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
         {stats.map((stat, index) => (
           <div
             key={index}
-            className="glass-panel rounded-2xl p-6 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 group"
+            className="glass-panel group rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(15,23,42,0.08)]"
           >
-            {/* Icon Background */}
-            <div className={`w-14 h-14 rounded-xl ${stat.bgColor} flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform duration-300`}>
+            <div className={`mb-4 flex h-14 w-14 items-center justify-center rounded-xl ${stat.bgColor} text-2xl transition-transform duration-300 group-hover:scale-110`}>
               {stat.icon}
             </div>
 
-            {/* Stats Content */}
             <div className="mb-4">
-              <p className="text-sm text-slate-600 font-semibold uppercase tracking-wide mb-2">
-                {stat.label}
-              </p>
-              <div className={`bg-gradient-to-r ${stat.color} bg-clip-text text-transparent text-4xl font-black`}>
+              <p className="mb-2 text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">{stat.label}</p>
+              <div className={`bg-gradient-to-r ${stat.color} bg-clip-text text-4xl font-black text-transparent`}>
                 {stat.value}
               </div>
             </div>
 
-            {/* Progress Bar */}
             {stat.label === 'Completion Rate' && (
-              <div className="w-full bg-slate-200 rounded-full h-2 overflow-hidden">
+              <div className="h-2.5 overflow-hidden rounded-full bg-slate-200">
                 <div
-                  className={`bg-gradient-to-r ${stat.color} h-full rounded-full transition-all duration-1000`}
+                  className={`h-full rounded-full bg-gradient-to-r ${stat.color} transition-all duration-1000`}
                   style={{ width: `${completionRate}%` }}
                 ></div>
               </div>
