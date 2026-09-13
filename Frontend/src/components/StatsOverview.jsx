@@ -17,30 +17,30 @@ function StatsOverview({ tasks }) {
     {
       label: 'Total Tasks',
       value: totalTasks,
-      icon: '📋',
-      color: 'from-blue-600 to-cyan-600',
-      bgColor: 'bg-blue-50',
+      icon: '01',
+      color: 'from-teal-700 to-teal-500',
+      bgColor: 'bg-teal-50',
     },
     {
       label: 'In Progress',
       value: inProgressTasks,
-      icon: '⚡',
-      color: 'from-yellow-600 to-orange-600',
-      bgColor: 'bg-yellow-50',
+      icon: '02',
+      color: 'from-amber-700 to-yellow-500',
+      bgColor: 'bg-amber-50',
     },
     {
       label: 'Completed',
       value: completedTasks,
-      icon: '✅',
-      color: 'from-green-600 to-emerald-600',
-      bgColor: 'bg-green-50',
+      icon: '03',
+      color: 'from-emerald-700 to-green-500',
+      bgColor: 'bg-emerald-50',
     },
     {
       label: 'Completion Rate',
       value: `${completionRate}%`,
-      icon: '📈',
-      color: 'from-purple-600 to-pink-600',
-      bgColor: 'bg-purple-50',
+      icon: '04',
+      color: 'from-sky-700 to-cyan-500',
+      bgColor: 'bg-sky-50',
     },
   ];
 
@@ -58,7 +58,7 @@ function StatsOverview({ tasks }) {
             key={index}
             className="glass-panel group rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(15,23,42,0.08)]"
           >
-            <div className={`mb-4 flex h-14 w-14 items-center justify-center rounded-xl ${stat.bgColor} text-2xl transition-transform duration-300 group-hover:scale-110`}>
+            <div className={`mb-4 flex h-12 w-12 items-center justify-center rounded-xl ${stat.bgColor} text-sm font-black tracking-[0.16em] text-slate-700 transition-transform duration-300 group-hover:scale-110`}>
               {stat.icon}
             </div>
 
