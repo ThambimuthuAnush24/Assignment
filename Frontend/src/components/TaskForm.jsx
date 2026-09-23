@@ -41,6 +41,14 @@ function TaskForm({ onCreateTask }) {
         <span className="hero-chip">Ship</span>
       </div>
 
+      <div className="mb-6 rounded-2xl border border-cyan-100 bg-cyan-50/80 p-3 text-sm text-cyan-900">
+        <div className="flex items-center gap-2 font-semibold">
+          <span className="inline-flex h-2.5 w-2.5 rounded-full bg-cyan-500" />
+          Today’s priority
+        </div>
+        <p className="mt-2 text-slate-700">Add one meaningful task and move it to done before the day ends.</p>
+      </div>
+
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="relative">
           <label htmlFor="taskName" className="mb-3 flex items-center gap-2 text-sm font-bold text-slate-700">

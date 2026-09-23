@@ -33,7 +33,7 @@ function TaskList({ tasks, onMarkCompleted, onUpdateTask, onDeleteTask }) {
           <div className="hero-kicker inline-flex">Workflow board</div>
           <h2 className="mt-2 text-xl md:text-2xl font-black text-slate-950">Task Queue</h2>
         </div>
-        <span className="text-xs md:text-sm text-slate-600 font-semibold tracking-wide uppercase">{tasks.length} items</span>
+        <span className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs md:text-sm font-bold tracking-[0.18em] text-slate-600 uppercase">{tasks.length} items</span>
       </div>
 
       <div className="space-y-6">

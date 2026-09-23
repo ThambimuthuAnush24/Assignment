@@ -137,7 +137,15 @@ function App() {
 
           {/* Main Content Section */}
           <div id="tasks" className="py-12">
-            <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-8">Manage Tasks</h2>
+            <div className="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+              <div>
+                <div className="hero-kicker mb-3">Task board</div>
+                <h2 className="text-3xl md:text-4xl font-black text-slate-900">Manage Tasks</h2>
+              </div>
+              <p className="max-w-xl text-sm md:text-base text-slate-600">
+                Stay on top of your workload with a clean queue that keeps priorities visible and momentum high.
+              </p>
+            </div>
             
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
               <div className="lg:col-span-1 animate-slideUp">

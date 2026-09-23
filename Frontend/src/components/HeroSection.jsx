@@ -38,7 +38,7 @@ function HeroSection() {
               <div className="mt-8 flex flex-col gap-4 sm:flex-row">
                 <a
                   href="#tasks"
-                  className="inline-flex items-center justify-center rounded-xl bg-cyan-500 px-6 py-3.5 text-base font-bold text-slate-950 shadow-[0_18px_40px_rgba(34,211,238,0.4)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-cyan-400"
+                  className="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-cyan-400 to-sky-500 px-6 py-3.5 text-base font-bold text-slate-950 shadow-[0_18px_40px_rgba(34,211,238,0.32)] transition-all duration-300 hover:-translate-y-0.5 hover:from-cyan-300 hover:to-sky-400"
                 >
                   Get Started
                 </a>
@@ -55,7 +55,7 @@ function HeroSection() {
               {quickStats.map((item) => (
                 <div
                   key={item.label}
-                  className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm shadow-[0_12px_30px_rgba(15,23,42,0.2)]"
+                  className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm shadow-[0_12px_30px_rgba(15,23,42,0.2)] transition-transform duration-300 hover:-translate-y-1"
                 >
                   <p className="text-[0.68rem] font-bold uppercase tracking-[0.18em] text-slate-300">{item.label}</p>
                   <p className="mt-3 text-xl font-black text-white">{item.value}</p>

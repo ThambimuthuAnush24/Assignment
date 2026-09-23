@@ -8,12 +8,15 @@ function Navbar() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <a href="#home" className="flex items-center gap-3" aria-label="Go to home section">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-500 via-sky-600 to-slate-900 shadow-lg shadow-cyan-500/20">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-400 via-sky-500 to-slate-900 shadow-lg shadow-cyan-500/20 ring-2 ring-white/70">
               <svg className="h-5 w-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
               </svg>
             </div>
-            <span className="text-xl font-black tracking-[-0.04em] text-slate-900">TaskFlow</span>
+            <div>
+              <div className="text-[0.65rem] font-black uppercase tracking-[0.3em] text-cyan-700">Workspace</div>
+              <span className="text-xl font-black tracking-[-0.04em] text-slate-900">TaskFlow</span>
+            </div>
           </a>
 
           <div className="hidden items-center gap-8 md:flex">
@@ -24,31 +27,31 @@ function Navbar() {
           </div>
 
           <div className="hidden items-center gap-3 md:flex">
-            <button className="rounded-lg p-2 text-slate-700 transition-colors hover:bg-slate-100" aria-label="Notifications">
-              <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <button className="rounded-xl border border-slate-200 bg-slate-50 p-2.5 text-slate-700 transition-all hover:border-cyan-200 hover:bg-cyan-50 hover:text-cyan-800" aria-label="Notifications">
+              <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
               </svg>
             </button>
             <a
               href="#tasks"
-              className="inline-flex items-center justify-center rounded-xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition-all duration-300 hover:bg-slate-800"
+              className="inline-flex items-center justify-center rounded-xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-slate-800"
             >
               New Task
             </a>
-            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-cyan-500 to-slate-600 text-sm font-bold text-white shadow-md">
+            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-cyan-500 to-slate-700 text-sm font-bold text-white shadow-md shadow-cyan-500/20">
               A
             </div>
           </div>
 
           <div className="flex items-center gap-3 md:hidden">
-            <button className="rounded-lg p-2 text-slate-700 transition-colors hover:bg-slate-100" aria-label="Notifications">
+            <button className="rounded-xl border border-slate-200 bg-slate-50 p-2 text-slate-700 transition-colors hover:bg-slate-100" aria-label="Notifications">
               <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
               </svg>
             </button>
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="rounded-lg p-2 text-slate-700 transition-colors hover:bg-slate-100"
+              className="rounded-xl border border-slate-200 bg-slate-50 p-2 text-slate-700 transition-colors hover:bg-slate-100"
               aria-label="Open menu"
             >
               <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

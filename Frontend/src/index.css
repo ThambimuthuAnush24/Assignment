@@ -107,11 +107,19 @@ h3 {
 }
 
 .glass-panel {
-  background: var(--panel);
-  border: 1px solid var(--panel-border);
-  box-shadow: 0 16px 40px rgba(16, 42, 67, 0.08);
+  background: linear-gradient(180deg, rgba(255,255,255,0.94), rgba(255,255,255,0.82));
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
   backdrop-filter: blur(12px);
   border-radius: 1rem;
+}
+
+.primary-button {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 45%, #0f766e 100%);
+}
+
+.primary-button:hover {
+  background: linear-gradient(135deg, #0b1120 0%, #1f2937 45%, #0d9488 100%);
 }
 
 .hero-panel {
