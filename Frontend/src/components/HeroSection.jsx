@@ -9,24 +9,24 @@ function HeroSection() {
 
   return (
     <div id="home" className="pt-8 pb-12">
-      <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-slate-950 via-sky-950 to-slate-900 shadow-[0_24px_80px_rgba(15,23,42,0.28)]">
+      <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-violet-950 via-indigo-950 to-slate-900 shadow-[0_24px_80px_rgba(76,29,149,0.28)]">
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -right-12 top-0 h-80 w-80 rounded-full bg-cyan-400/10 blur-3xl"></div>
-          <div className="absolute -bottom-16 left-0 h-72 w-72 rounded-full bg-indigo-500/10 blur-3xl"></div>
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(34,211,238,0.2),transparent_25%),radial-gradient(circle_at_bottom_left,rgba(59,130,246,0.18),transparent_35%)]"></div>
+          <div className="absolute -right-12 top-0 h-80 w-80 rounded-full bg-fuchsia-400/10 blur-3xl"></div>
+          <div className="absolute -bottom-16 left-0 h-72 w-72 rounded-full bg-violet-500/10 blur-3xl"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(216,180,254,0.22),transparent_25%),radial-gradient(circle_at_bottom_left,rgba(244,114,182,0.16),transparent_35%)]"></div>
         </div>
 
         <div className="relative z-10 px-6 py-12 md:px-12 md:py-16 lg:py-20">
           <div className="flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-2xl">
-              <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-4 py-2 backdrop-blur-sm">
-                <div className="h-2.5 w-2.5 rounded-full bg-cyan-300 shadow-[0_0_18px_rgba(103,232,249,0.9)]"></div>
-                <span className="text-sm font-semibold text-cyan-100">Welcome back!</span>
+              <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-violet-300/30 bg-violet-400/10 px-4 py-2 backdrop-blur-sm">
+                <div className="h-2.5 w-2.5 rounded-full bg-violet-300 shadow-[0_0_18px_rgba(196,181,253,0.9)]"></div>
+                <span className="text-sm font-semibold text-violet-100">Welcome back!</span>
               </div>
 
               <h1 className="mb-5 text-4xl font-black leading-[1.05] tracking-[-0.04em] text-white md:text-5xl lg:text-6xl">
                 Stay Organized,
-                <span className="mt-2 block bg-gradient-to-r from-cyan-300 via-sky-200 to-blue-300 bg-clip-text text-transparent">
+                <span className="mt-2 block bg-gradient-to-r from-violet-200 via-fuchsia-200 to-pink-200 bg-clip-text text-transparent">
                   Get Things Done
                 </span>
               </h1>
@@ -38,7 +38,7 @@ function HeroSection() {
               <div className="mt-8 flex flex-col gap-4 sm:flex-row">
                 <a
                   href="#tasks"
-                  className="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-cyan-400 to-sky-500 px-6 py-3.5 text-base font-bold text-slate-950 shadow-[0_18px_40px_rgba(34,211,238,0.32)] transition-all duration-300 hover:-translate-y-0.5 hover:from-cyan-300 hover:to-sky-400"
+                  className="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-violet-400 via-fuchsia-500 to-pink-500 px-6 py-3.5 text-base font-bold text-white shadow-[0_18px_40px_rgba(168,85,247,0.32)] transition-all duration-300 hover:-translate-y-0.5 hover:from-violet-300 hover:via-fuchsia-400 hover:to-pink-400"
                 >
                   Get Started
                 </a>

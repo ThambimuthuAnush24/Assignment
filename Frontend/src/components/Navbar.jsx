@@ -8,13 +8,13 @@ function Navbar() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <a href="#home" className="flex items-center gap-3" aria-label="Go to home section">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-400 via-sky-500 to-slate-900 shadow-lg shadow-cyan-500/20 ring-2 ring-white/70">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-violet-500 via-fuchsia-500 to-indigo-900 shadow-lg shadow-violet-500/20 ring-2 ring-white/70">
               <svg className="h-5 w-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
               </svg>
             </div>
             <div>
-              <div className="text-[0.65rem] font-black uppercase tracking-[0.3em] text-cyan-700">Workspace</div>
+              <div className="text-[0.65rem] font-black uppercase tracking-[0.3em] text-violet-700">Workspace</div>
               <span className="text-xl font-black tracking-[-0.04em] text-slate-900">TaskFlow</span>
             </div>
           </a>
@@ -34,11 +34,11 @@ function Navbar() {
             </button>
             <a
               href="#tasks"
-              className="inline-flex items-center justify-center rounded-xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-slate-800"
+              className="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-violet-600 to-fuchsia-500 px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-violet-500/20 transition-all duration-300 hover:-translate-y-0.5 hover:from-violet-500 hover:to-fuchsia-400"
             >
               New Task
             </a>
-            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-cyan-500 to-slate-700 text-sm font-bold text-white shadow-md shadow-cyan-500/20">
+            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-violet-500 to-indigo-700 text-sm font-bold text-white shadow-md shadow-violet-500/20">
               A
             </div>
           </div>
