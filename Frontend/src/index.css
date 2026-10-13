@@ -5,14 +5,14 @@
 @tailwind utilities;
 
 :root {
-  --ink: #1f1733;
-  --ink-soft: #685d80;
-  --bg-1: #f6f3ff;
-  --bg-2: #f1ebff;
-  --bg-3: #f7eaf8;
-  --accent: #6d28d9;
-  --accent-2: #a855f7;
-  --accent-3: #ec4899;
+  --ink: #12343b;
+  --ink-soft: #58727a;
+  --bg-1: #f1fbfa;
+  --bg-2: #e9f6f4;
+  --bg-3: #fff6e8;
+  --accent: #0f766e;
+  --accent-2: #0891b2;
+  --accent-3: #f59e0b;
   --panel: rgba(255, 255, 255, 0.9);
   --panel-border: rgba(31, 23, 51, 0.1);
 }
@@ -32,8 +32,8 @@ body {
   color: var(--ink);
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.58), rgba(255, 255, 255, 0)),
-    radial-gradient(1000px 560px at 5% -2%, rgba(109, 40, 217, 0.2), transparent 60%),
-    radial-gradient(900px 520px at 100% 10%, rgba(236, 72, 153, 0.12), transparent 52%),
+    radial-gradient(1000px 560px at 5% -2%, rgba(13, 148, 136, 0.2), transparent 60%),
+    radial-gradient(900px 520px at 100% 10%, rgba(245, 158, 11, 0.14), transparent 52%),
     linear-gradient(160deg, var(--bg-1) 0%, var(--bg-2) 53%, var(--bg-3) 100%);
   min-height: 100vh;
   line-height: 1.4;
@@ -78,7 +78,7 @@ h3 {
   inset: 6% 14% auto auto;
   width: min(52vw, 560px);
   height: min(52vw, 560px);
-  background: radial-gradient(circle, rgba(168, 85, 247, 0.24) 0%, rgba(109, 40, 217, 0) 68%);
+  background: radial-gradient(circle, rgba(8, 145, 178, 0.22) 0%, rgba(15, 118, 110, 0) 68%);
   z-index: -1;
   pointer-events: none;
 }
@@ -96,7 +96,7 @@ h3 {
   height: min(40vw, 460px);
   left: -8%;
   top: 20%;
-  background: radial-gradient(circle, rgba(168, 85, 247, 0.2) 0%, rgba(168, 85, 247, 0) 72%);
+  background: radial-gradient(circle, rgba(8, 145, 178, 0.18) 0%, rgba(8, 145, 178, 0) 72%);
 }
 
 .bg-orb-b {
@@ -104,7 +104,7 @@ h3 {
   height: min(34vw, 400px);
   right: -6%;
   bottom: 8%;
-  background: radial-gradient(circle, rgba(236, 72, 153, 0.16) 0%, rgba(236, 72, 153, 0) 70%);
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.14) 0%, rgba(245, 158, 11, 0) 70%);
 }
 
 .glass-panel {
@@ -306,7 +306,7 @@ h3 {
   padding: 0.85rem 1rem;
   border-radius: 0.75rem;
   font-weight: 800;
-  box-shadow: 0 8px 20px rgba(6, 182, 212, 0.08);
+  box-shadow: 0 8px 20px rgba(15, 118, 110, 0.12);
   transition: transform .16s ease, box-shadow .16s ease, opacity .16s ease;
 }
 
